@@ -94,11 +94,11 @@ if (!isset($_SESSION['initiated'])) {
                 <div class="row">
                     <div class="col-md-3 col-md-offset-2">
                         <h3>Vivien Chbicheb</h3>
-                        <p>Dieu</p>
+                        <p>Sous-fifre</p>
                     </div>
                     <div class="col-md-3 col-md-offset-2">
                         <h3>Victor Chomel</h3>
-                        <p>Satan</p>
+                        <p>PDG</p>
                     </div>
                 </div>
             </div>
