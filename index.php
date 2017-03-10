@@ -1,4 +1,3 @@
-
 <?php
 session_name("Session");
 // ne pas mettre d'espace dans le nom de session !
