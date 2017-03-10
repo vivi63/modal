@@ -19,13 +19,13 @@ if (!isset($_SESSION['initiated'])) {
 
     <?php
     require('utils/utils.php');
-    require('log\logInOut.php');
-    require('log\printForms.php');
+    require('log/logInOut.php');
+    require('log/printForms.php');
 
     class Database {
 
         public static function connect() {
-            $dsn = 'mysql:dbname=td3;host=127.0.0.1';
+            $dsn = 'mysql:dbname=utilisateur;host=127.0.0.1';
             $user = 'root';
             $password = "";
             $dbh = null;

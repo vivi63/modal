@@ -13,7 +13,7 @@
         <?php
         $form_values_valid = false;
         require('log\printForms.php');
-        require('../TD3/SQL.php');
+        require('../utilisateur/SQL.php');
         $dbh = Database::connect();
 
 
@@ -31,7 +31,7 @@
                     $request_succeeded = $sth->execute();
                     echo "Changement effectuée";
                     echo "<br>";
-                    echo "<a href='http://localhost/TD4/index.php'>Connexion</a>";
+
                     $form_values_valid = true;
                 }
                 else{
