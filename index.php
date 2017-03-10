@@ -65,10 +65,8 @@ if (!isset($_SESSION['initiated'])) {
     }
     generateHTMLHeader($pageTitle, "bootstrap.css");
     ?>
-
     <body>
         <div class="container">
-
 
             <?php
             generateMenu($askedPage);
