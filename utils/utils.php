@@ -7,7 +7,7 @@
         <meta name="author" content="Nom de l'auteur"/>
         <meta name="keywords" content="Mots clefs relatifs à cette page"/>
         <meta name="description" content="Descriptif court"/>
-        <title>Titre de ma page</title>
+        <title>Info VOS</title>
     </head>
 
     <body>

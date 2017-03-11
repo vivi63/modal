@@ -1,7 +1,7 @@
 
 <?php
 
-function generate() {
+
     echo <<<EOS
       <h2>Bonjour à tous ! </h2>
 <p>
@@ -16,7 +16,7 @@ function generate() {
   Avec d'autres paragraphes...
 </p>   
 EOS;
-}
+
 ?>
 
 

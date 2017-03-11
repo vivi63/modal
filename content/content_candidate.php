@@ -2,7 +2,7 @@
 
 <?php
 
-function generate() {
+
     echo <<<EOS
  
         <p> Le premier tour de l'élection présidentielle voit s'affronter quatre candidats. Vous avez la possibilité de découvrir leur programme de manière inédite sur ce site.  </p>
@@ -42,7 +42,7 @@ function generate() {
         </div>
  
 EOS;
-}
+
 ?>
 
 /* 

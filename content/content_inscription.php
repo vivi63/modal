@@ -1,14 +1,6 @@
 <?php
 
   $form_values_valid=false;
-
-            
-  function insererUtilisateur($login, $mdp, $nom, $prenom, $promotion, $naissance, $email, $feuille) {
-                $dbh = Database::connect();
-                $sth = $dbh->prepare("INSERT INTO `utilisateurs` (`login`, `mdp`, `nom`, `prenom`, `promotion`, `naissance`, `email`, `feuille`) VALUES(?,SHA1(?),?,?,?,?,?,?)");
-                $sth->execute(array("$login", "$mdp", "$nom", "$prenom", "$promotion", "$naissance", "$email", "$feuille"));
-                $dbh = null;
-            }
             
 if(isset($_POST["login"]) && $_POST["login"] != "" &&
    isset($_POST["email"]) && $_POST["email"] != "" && 

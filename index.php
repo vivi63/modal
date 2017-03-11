@@ -1,13 +1,10 @@
 <?php
-session_name("Session");
-
-
+session_name("session");
 session_start();
 if (!isset($_SESSION['initiated'])) {
     session_regenerate_id();
     $_SESSION['initiated'] = true;
 }
-
 ?>
 
 
@@ -19,35 +16,22 @@ if (!isset($_SESSION['initiated'])) {
 
     <?php
     require('utils/utils.php');
-    require('log/logInOut.php');
     require('log/printForms.php');
+    require('DataBaseClass.php');
 
-    class Database {
 
-        public static function connect() {
-            $dsn = 'mysql:dbname=modal;host=127.0.0.1';
-            $user = 'root';
-            $password = "";
-            $dbh = null;
-            try {
-                $dbh = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-                $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch (PDOException $e) {
-                echo 'Connexion échouée : ' . $e->getMessage();
-                exit(0);
-            }
-            return $dbh;
-        }
-
-    }
 
     $dbh = Database::connect();
-   
+
     $askedPage = "";
     if (isset($_POST['page'])) {
         $askedPage = $_POST["page"];
     }
-
+    if (isset($_POST['todo'])) {
+        if ($_POST['todo'] == "login") {
+            Utilisateur::logIn($dbh);
+        }
+    }
     ?>
     <?php
     $askedPage = "";
@@ -58,6 +42,7 @@ if (!isset($_SESSION['initiated'])) {
             $askedPage = $_GET['page'];
         }
     }
+
     ini();
 
     $authorized = checkPage($askedPage);
@@ -66,52 +51,38 @@ if (!isset($_SESSION['initiated'])) {
     }
     generateHTMLHeader($pageTitle, "bootstrap.css");
     ?>
+
     <body>
         <div class="container">
-
             <?php
             generateMenu($askedPage);
             ?>
 
             <div class="jumbotron">
-                <h1>Info VOS<br> <small> Tout savoir sur les VOS des années précédentes</small> </h1>
+                <h1>Info VOS<br> </h1>
             </div>
-
 
             <div id="content">
                 <div>
-
                     <?php
                     getPageTitle($askedPage);
-
                     if ($authorized == TRUE) {
                         require "content\content_$askedPage.php";
-                        generate();
                     }
                     ?>
-
                 </div>
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-2">
-                        <h3>Vivien Chbicheb</h3>
-                        <p>Sous-fifre</p>
-                    </div>
-                    <div class="col-md-3 col-md-offset-2">
-                        <h3>Victor Chomel</h3>
-                        <p>PDG</p>
-                    </div>
+
+
+
+                <div id="footer">
+                    <p>Site réalisé en Modal Web </p>
                 </div>
-            </div>
 
-            <div id="footer">
-                <p>Site réalisé en Modal Web </p>
             </div>
-
-        </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="js/jquery.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.js"></script>
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="js/jquery.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="js/bootstrap.js"></script>
     </body>
     <?php
     generateHTMLFooter();

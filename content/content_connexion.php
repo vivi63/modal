@@ -1,7 +1,4 @@
 <?php
-
- 
-
         if (isset($_SESSION["loggedIn"])) {
             printLogoutForm($askedPage);
                echo "<a href='http://localhost/TD4/changePassword.php'>Changer de mot de passe</a>";
@@ -15,6 +12,7 @@
             }
         } else {
             printLoginForm($askedPage);
+            
             echo "<a href='http://localhost/TD4/register.php'>S'enregistrer</a>";
         }
 
