@@ -1,5 +1,7 @@
 <?php
 
+// Formulaires pour les utilisateurs 
+
 function printLoginForm($askedpage) {
     echo <<<EOS
      <form action='index.php?page=$askedpage' method="post" >
@@ -63,6 +65,7 @@ function printRegisterForm() {
 EOS;
 }
 
+
 function printchangeRegisterForm() {
     echo <<<EOS
      <form action="changePassword.php?todo=..." method="post"
@@ -103,6 +106,46 @@ function printdeleteUser() {
  </p>
   <input type=submit value="Submit">
 </form>
+ 
+     
+EOS;
+}
+
+//Formulaire pour les voyages 
+
+function printRegisterFormV() {
+    echo <<<EOS
+     <form action="index.php?page="espacevos" method="post">
+     
+ <p>
+  <label for="id">Id : </label>
+  <input id="login" type=text required name=id>
+ </p>
+     <p>
+  <label for="nom">Nom :</label>
+  <input id="text" type=text required name=nom>
+ </p>
+     <p>
+  <label for="Promotion">Promotion :</label>
+  <input id="text" type=text required name=promotion>
+ </p>
+     <p>
+  <label for="Section">Section: </label>
+  <input id="text" type=text required name=section>
+ </p>
+ <p>
+  <label for="latitude">Latitude :</label>
+  <input id="latitude" type=decimal required name=latitude>
+ </p>
+    <p>
+  <label for="latitude">Longitude :</label>
+  <input id="longitude" type=decimal required name=longitude>
+ </p>
+ <p>
+  <label for="password2">Information :</label>
+  <input id="information" type=text name=information>
+ </p>
+     
  
      
 EOS;

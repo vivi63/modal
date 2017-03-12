@@ -119,11 +119,10 @@ class Voyage {
     public $information;
 
     public function __toString() {
-        return '[' . "$this->login" . ']' . " " . "$this->prenom" . " " . $this->nom . ", X" . "$this->promotion" . "<br>";
+        return '[' . "$this->id" . ']' . " " . "$this->nom" . " " . $this->promotion. "à" . "$this->latitude" ."$this->longitude". "<br>";
     }
 
     public static function getVoyage($dbh, $id) {
-
         $query = "SELECT * FROM `voyage` WHERE `id`='$id'";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Voyage');
