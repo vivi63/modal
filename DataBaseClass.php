@@ -19,7 +19,7 @@ class Database {
 
 }
 
-// opérations sur la base
+// Opération fondamentale 
 
 
 
@@ -27,6 +27,13 @@ function insererUtilisateur($id, $nom, $prenom, $password, $statut, $section, $p
     $dbh = Database::connect();
     $sth = $dbh->prepare("INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `password`, `statut`, `section`, `promotion`) VALUES(?,?,?,SHA1(?),?,?,?)");
     $sth->execute(array("$id", "$nom", "$prenom", "$password", "$statut", "$section", "$promotion"));
+    $dbh = null;
+}
+
+function insererVoyage($id, $nom, $section, $promotion, $latitude, $longitude, $latitude,$information) {
+    $dbh = Database::connect();
+    $sth = $dbh->prepare("INSERT INTO `utilisateur` ('id', 'nom', 'section', 'promotion', 'latitude', 'longitude', 'latitude','information') VALUES(?,?,?,?,?,?,?)");
+    $sth->execute(array("$id", "$nom", "$section", "$promotion", "$latitude", "$longitude", "$latitude","$information"));
     $dbh = null;
 }
 
@@ -41,6 +48,9 @@ function getName() {
     }
     $dbh = null;
 }
+
+// Opération fondamentale 
+
 
 class Utilisateur {
 
@@ -98,5 +108,32 @@ class Utilisateur {
     }
 
 }
+class Voyage {
 
+    public $id;
+    public $nom;
+    public $section;
+    public $promotion;
+    public $latitude;
+    public $longitude;
+    public $information;
+
+    public function __toString() {
+        return '[' . "$this->login" . ']' . " " . "$this->prenom" . " " . $this->nom . ", X" . "$this->promotion" . "<br>";
+    }
+
+    public static function getVoyage($dbh, $id) {
+
+        $query = "SELECT * FROM `voyage` WHERE `id`='$id'";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Voyage');
+        $sth->execute();
+        $voy = $sth->fetch();
+        $sth->closeCursor();
+        return $voy;
+    }
+
+
+
+}
 ?>
