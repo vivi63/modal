@@ -72,7 +72,7 @@ if (!isset($_SESSION['initiated'])) {
                     ?>
                 </div>
 
-               
+                 </div>
         
                 <div id="footer">
                     <p>Site réalisé en Modal Web </p>
