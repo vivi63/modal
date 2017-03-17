@@ -123,13 +123,11 @@ if (!isset($_SESSION['initiated'])) {
 
         </script>
         
-
                 <div id="footer">
                     <p>Site réalisé en Modal Web </p>
                 </div>
 
-            </div>
-            </div>
+           
             <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
             <script src="js/jquery.js"></script>
             <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -142,4 +140,6 @@ if (!isset($_SESSION['initiated'])) {
     <?php
     generateHTMLFooter();
     ?>
+
+</html>
 

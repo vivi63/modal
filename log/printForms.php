@@ -24,7 +24,7 @@ EOS;
 
 function printRegisterForm() {
     echo <<<EOS
-     <form action="register.php?todo=..." method="post"
+     <form action="register.php" method="post"
       oninput="up2.setCustomValidity(up2.value != up.value ? 'Les mots de passe diffèrent.' : '')">
  <p>
   <label for="id">Pseudo : </label>
