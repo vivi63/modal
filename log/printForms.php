@@ -67,7 +67,7 @@ EOS;
 
 function printchangeRegisterForm() {
     echo <<<EOS
-     <form action="changePassword.php?todo=..." method="post"
+     <form action="index.php?page=account" method="post"
       oninput="newpassword2.setCustomValidity(newpassword2.value != newpassword.value ? 'Les nouveaux mots de passe diffèrent.' : '')">
  <p>
   <label for="login">Pseudo :</label>
@@ -82,9 +82,10 @@ function printchangeRegisterForm() {
   <input id="newpassword" type=password required name=newpassword>
  </p>
  <p>
-  <label for="password2">:</label>
+  <label for="password2">Confirmer le mot de passe :</label>
   <input id="password2" type=password name=newpassword2>
  </p>
+    <p><input type="hidden"  value="change" name="todo" /> </p>
   <input type=submit value="Submit">
 </form>
  
@@ -94,15 +95,16 @@ EOS;
 
 function printdeleteUser() {
     echo <<<EOS
-     <form action="deleteUser.php?todo=..." method="post">
+     <form action="index.php?page=account" method="post">
  <p>
-  <label for="login">login:</label>
-  <input id="login" type=text required name=login>
+  <label for="login">Pseudo :</label>
+  <input id="login" type=text required name=id>
  </p>
  <p>
-  <label for="mdp">Mot de passe</label>
+  <label for="mdp">Mot de passe :</label>
   <input id="text" type=password required name=password>
  </p>
+     <p><input type="hidden"  value="delete" name="todo" /> </p>
   <input type=submit value="Submit">
 </form>
  
