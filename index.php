@@ -67,7 +67,7 @@ if (!isset($_SESSION['initiated'])) {
                     <?php
                     getPageTitle($askedPage);
                     if ($authorized == TRUE) {
-                        require "content\content_$askedPage.php";
+                        require "content/content_$askedPage.php";
                     }
                     ?>
                 </div>

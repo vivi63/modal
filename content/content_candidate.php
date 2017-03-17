@@ -10,20 +10,20 @@
             <div class="row">
                 <div class="col-md-4">
                     <a href="http://www.enseignement.polytechnique.fr/informatique/profs/Olivier.Serre/Bootstrap/" class="thumbnail">
-                        <img src="pic\FF.jpg" classe="img-rounded" alt="François Fillon"  />
+                        <img src="pic/FF.jpg" classe="img-rounded" alt="François Fillon"  />
                         <button type="button" class="btn">François Fillon</button>
                     </a>
                 </div>
                 <div class="col-md-4">
                     <a href="http://www.enseignement.polytechnique.fr/informatique/profs/Olivier.Serre/Bootstrap/" class="thumbnail">
-                        <img src="pic\BH.jpg" classe="img-rounded" alt="Benoit Hamon"   />
+                        <img src="pic/BH.jpg" classe="img-rounded" alt="Benoit Hamon"   />
                         
                         <button type="button" class="btn">Benoit Hamon</button>
                     </a>
                 </div>
                 <div class="col-md-4">
                     <a href="http://www.enseignement.polytechnique.fr/informatique/profs/Olivier.Serre/Bootstrap/" class="thumbnail">
-                        <img src="pic\JM.jpg" classe="img-rounded" alt="Jean-Luc Mélenchon"  />
+                        <img src="pic/JM.jpg" classe="img-rounded" alt="Jean-Luc Mélenchon"  />
                         <button type="button" class="btn">Jean-Luc Mélenchon</button>
                     </a>
 
@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <a href="http://www.enseignement.polytechnique.fr/informatique/profs/Olivier.Serre/Bootstrap/" class="thumbnail">
-                        <img src="pic\EM.jpg" classe="img-rounded" alt="Emmanuel Macron"  />
+                        <img src="pic/EM.jpg" classe="img-rounded" alt="Emmanuel Macron"  />
                         <button type="button" class="btn">Emmanuel Macron</button>
                     </a>
 

@@ -12,7 +12,7 @@
 
         <?php
         $form_values_valid = false;
-        require('log\printForms.php');
+        require('log/printForms.php');
         require('../utilisateur/SQL.php');
         $dbh = Database::connect();
 
