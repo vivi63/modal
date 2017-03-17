@@ -35,8 +35,37 @@ EOS;
 function generateHTMLFooter() {
     echo "</html>";
 }
+/* 
+ * Nav Bar dynamique hors connection 
+ */
+$page_listhc= array(
+    array(
+        "name" => "welcome",
+        "title" => "Accueil de notre site",
+        "menutitle" => "Accueil"),
+    array(
+        "name" => "destinations",
+        "title" => "Les destinations précédentes",
+        "menutitle" => "Voir les destinations précédentes"),
+    array(
+        "name" => "connexion",
+        "title" => "Connecte toi ! ",
+        "menutitle" => "Connexion"),
+     array(
+        "name" => "inscription",
+        "title" => "Comment s'inscrire ?",
+        "menutitle" => "Inscription"),
+    array(
+        "name" => "contacts",
+        "title" => "Qui sommes-nous ?",
+        "menutitle" => "Nous contacter"),
+);
 
-$page_list= array(
+/* 
+ * Nav Bar dynamique connection respo vos
+ */
+
+$page_listco= array(
     array(
         "name" => "welcome",
         "title" => "Accueil de notre site",
@@ -54,20 +83,25 @@ $page_list= array(
         "name" => "respovos",
         "title" => "Retex détaillé",
         "menutitle" => "Espace Responsable VOS"),
+    array(
+        "name" => "account",
+        "title" => "Gérer mon Compte",
+        "menutitle" => "Mon Compte"),
      array(
-        "name" => "inscription",
-        "title" => "Comment s'inscrire ?",
-        "menutitle" => "Inscription"),
-     array(
-        "name" => "connexion",
-        "title" => "Connecte toi ! ",
-        "menutitle" => "Connexion"),
+        "name" => "deconnexion",
+        "title" => "Déconnexion",
+        "menutitle" => "Déconnexion"),
     array(
         "name" => "contacts",
         "title" => "Qui sommes-nous ?",
         "menutitle" => "Nous contacter"),
 );
-
+if (isset($_SESSION["loggedIn"])){
+    $page_list=$page_listco;
+}
+else{
+    $page_list=$page_listhc;
+}
 function checkPage($askedPage) {
     global $page_list;
     foreach ($page_list as $name => $array) {

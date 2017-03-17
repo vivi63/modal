@@ -1,6 +1,6 @@
 <?php
         if (isset($_SESSION["loggedIn"])) {
-               echo "<a href='http://localhost/TD4/deleteUser.php'>Supprimer son compte</a>";
+               echo "Bravo vous êtes bien connecté";
                echo "<br>";
                echo "<a href='http://localhost/Project/index.php?page=welcome'>Retour à l'accueil</a>";
                
