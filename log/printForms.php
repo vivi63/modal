@@ -65,7 +65,6 @@ function printRegisterForm() {
 EOS;
 }
 
-
 function printchangeRegisterForm() {
     echo <<<EOS
      <form action="changePassword.php?todo=..." method="post"
@@ -115,10 +114,10 @@ EOS;
 
 function printRegisterFormV() {
     echo <<<EOS
-     <form action="index.php?page="espacevos" method="post">
+     <form action="index.php?page=respovos" method="post">
      
  <p>
-  <label for="id">Id : </label>
+  <label for="id">Id :</label>
   <input id="login" type=text required name=id>
  </p>
      <p>
@@ -130,7 +129,7 @@ function printRegisterFormV() {
   <input id="text" type=text required name=promotion>
  </p>
      <p>
-  <label for="Section">Section: </label>
+  <label for="Section">Section :</label>
   <input id="text" type=text required name=section>
  </p>
  <p>
@@ -143,8 +142,11 @@ function printRegisterFormV() {
  </p>
  <p>
   <label for="password2">Information :</label>
-  <input id="information" type=text name=information>
+<input id="information" type=text name=information>
  </p>
+      
+ <input type=submit value="Submit">
+</form>
      
  
      
