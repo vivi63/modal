@@ -14,7 +14,9 @@
 <h2>Une autre section de ma page d'accueil</h2>
 <p>
   Avec d'autres paragraphes...
-</p>   
+</p> 
+
+
 EOS;
 
 ?>

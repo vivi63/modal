@@ -24,7 +24,7 @@ EOS;
 
 function printRegisterForm() {
     echo <<<EOS
-     <form action="register.php" method="post"
+     <form action="index.php?page=inscription" method="post"
       oninput="up2.setCustomValidity(up2.value != up.value ? 'Les mots de passe diffèrent.' : '')">
  <p>
   <label for="id">Pseudo : </label>
@@ -56,7 +56,7 @@ function printRegisterForm() {
  </p>
      <p>
   <label for="promotion">Promotion : </label>
-  <input id="text" type=text required name=section>
+  <input id="text" type=text required name=promotion>
  </p>
   <input type=submit value="Créer votre compte">
 </form>
@@ -70,19 +70,19 @@ function printchangeRegisterForm() {
      <form action="changePassword.php?todo=..." method="post"
       oninput="newpassword2.setCustomValidity(newpassword2.value != newpassword.value ? 'Les nouveaux mots de passe diffèrent.' : '')">
  <p>
-  <label for="login">login:</label>
-  <input id="login" type=text required name=login>
+  <label for="login">Pseudo :</label>
+  <input id="login" type=text required name=id>
  </p>
  <p>
-  <label for="email">Ancien MDP:</label>
+  <label for="email">Ancien mot de passe :</label>
   <input id="text" type=password required name=password>
  </p>
  <p>
-  <label for="newpassword">New Password:</label>
+  <label for="newpassword">Nouveau mot de passe :</label>
   <input id="newpassword" type=password required name=newpassword>
  </p>
  <p>
-  <label for="password2">Confirm new password:</label>
+  <label for="password2">:</label>
   <input id="password2" type=password name=newpassword2>
  </p>
   <input type=submit value="Submit">
