@@ -35,7 +35,10 @@ echo <<<EOS
                 // For each of these markers, give them a title with their index, and when
                 // they are clicked they should open an infowindow with text from a secret
                 // message.
-                var secretMessages = ['1er VOS', '2eme VOS', 'Chez moi', 'Nul Part', '3eme VOS'];
+                var message = 'VOS de natation';
+                var secretMessages = [message, '2eme VOS', 'Chez moi', 'Nul Part', '3eme VOS'];
+                var listeLong = [];
+                var listeLat = [];
                 var lngSpan = bounds.east - bounds.west;
                 var latSpan = bounds.north - bounds.south;
                 for (var i = 0; i < secretMessages.length; ++i) {
