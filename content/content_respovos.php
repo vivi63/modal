@@ -27,7 +27,7 @@ printRegisterFormV();
       <input id="submit" type="button" value="Geocode">
 </div>
 
-<div id="localisation"></div>
+
 
 <div id="maCarte"></div>
 
@@ -54,8 +54,10 @@ function geocodeAddress(geocoder, resultsMap) {
       resultsMap.setCenter(results[0].geometry.location);
       
       var res = results[0].geometry.location;
-      console.log(results[0].geometry.location.lat());
-      console.log(results[0].geometry.location.lng());
+      document.getElementById("latitude").value = results[0].geometry.location.lat();
+      document.getElementById("longitude").value = results[0].geometry.location.lng();
+
+      
       var marker = new google.maps.Marker({
         map: resultsMap,
         position: res
@@ -67,3 +69,5 @@ function geocodeAddress(geocoder, resultsMap) {
   });
 }
 </script>
+
+echo()

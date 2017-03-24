@@ -23,7 +23,7 @@ function generateHTMLHeader($title) {
         
           <link href="../bootstrap/css/bootstrap.css" rel="stylesheet"/>
           <link href="../bootstrap/css/perso.css" rel="stylesheet"/>
-           <link rel="stylesheet" type="text/css" href="../Project/style.css" />
+           <link rel="stylesheet" type="text/css" href="style.css" />
           
         <meta charset="UTF-8"/>
         <meta name="author" content="Nom de l'auteur"/>
