@@ -30,10 +30,10 @@ function insererUtilisateur($id, $nom, $prenom, $password, $statut, $section, $p
     $dbh = null;
 }
 
-function insererVoyage($id, $nom, $section, $promotion, $latitude, $longitude, $latitude,$information) {
+function insererVoyage($id, $nom, $section, $promotion, $latitude, $longitude, $information) {
     $dbh = Database::connect();
-    $sth = $dbh->prepare("INSERT INTO `utilisateur` ('id', 'nom', 'section', 'promotion', 'latitude', 'longitude', 'latitude','information') VALUES(?,?,?,?,?,?,?)");
-    $sth->execute(array("$id", "$nom", "$section", "$promotion", "$latitude", "$longitude", "$latitude","$information"));
+    $sth = $dbh->prepare("INSERT INTO `voyage` ('id', 'nom', 'section', 'promotion',  'latitude', 'longitude','information') VALUES(?,?,?,?,?,?,?)");
+    $sth->execute(array("$id", "$nom", "$section", "$promotion", "$latitude", "$longitude", "$information"));
     $dbh = null;
 }
 
