@@ -119,7 +119,11 @@ class Voyage {
     public $information;
 
     public function __toString() {
-        return '[' . "$this->id" . ']' . " " . "$this->nom" . " " . $this->promotion. "à" . "$this->latitude" ."$this->longitude". "<br>";
+        return '[' . "$this->id" . ']' . " " . "$this->nom" . " " . $this->promotion. " à la latitude " . "$this->latitude" . " et la longitude " . "$this->longitude". " <br>";
+    }
+    
+    public function __localisation() {
+        return "lat: "."$this->latitude".", "."lng: "."$this->longitude";
     }
 
     public static function getVoyage($dbh, $id) {
@@ -137,7 +141,7 @@ class Voyage {
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Voyage');
         $sth->execute();
-        $voy = $sth->fetch();
+        $voy = $sth->fetchAll();
         $sth->closeCursor();
         return $voy;
     }
