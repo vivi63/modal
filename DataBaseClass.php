@@ -30,10 +30,10 @@ function insererUtilisateur($id, $nom, $prenom, $password, $statut, $section, $p
     $dbh = null;
 }
 
-function insererVoyage($id, $nom, $section, $promotion, $latitude, $longitude, $information) {
+function insererVoyage($nom, $section, $promotion, $latitude, $longitude, $information) {
     $dbh = Database::connect();
-    $sth = $dbh->prepare("INSERT INTO `voyage` (`id`, `nom`, `section`, `promotion`,  `latitude`, `longitude`, `information`) VALUES(?,?,?,?,?,?,?)");
-    $sth->execute(array("$id", "$nom", "$section", "$promotion", "$latitude", "$longitude", "$information"));
+    $sth = $dbh->prepare("INSERT INTO `voyage` (`nom`, `section`, `promotion`,  `latitude`, `longitude`, `information`) VALUES(?,?,?,?,?,?)");
+    $sth->execute(array("$nom", "$section", "$promotion", "$latitude", "$longitude", "$information"));
     $dbh = null;
 }
 
@@ -84,8 +84,7 @@ class Utilisateur {
         while ($courant = $sth->fetch(PDO::FETCH_ASSOC)) {
             if ($courant['password'] == sha1($password)) {
                 return TRUE;
-            } 
-            else {
+            } else {
                 return FALSE;
             }
         }
@@ -108,6 +107,7 @@ class Utilisateur {
     }
 
 }
+
 class Voyage {
 
     public $id;
@@ -119,8 +119,10 @@ class Voyage {
     public $information;
 
     public function __toString() {
-        return '[' . "$this->id" . ']' . " " . "$this->nom" . " " . $this->promotion. "à" . "$this->latitude" ."$this->longitude". "<br>";
-    }
+            return '[' . "$this->id" . ']' . " Voyage effectué par la section " . "$this->section" . " de la promotion " . "$this->promotion" . " en " . "$this->nom" . " Commentaire : " . "$this->information";
+      
+        }
+    
 
     public static function getVoyage($dbh, $id) {
         $query = "SELECT * FROM `voyage` WHERE `id`='$id'";
@@ -131,7 +133,7 @@ class Voyage {
         $sth->closeCursor();
         return $voy;
     }
-    
+
     public static function getAllVoyage($dbh) {
         $query = "SELECT * FROM `voyage`";
         $sth = $dbh->prepare($query);
@@ -142,7 +144,17 @@ class Voyage {
         return $voy;
     }
 
-
+    public static function ifVoyage($id) {
+        global $dbh;
+        $query = "SELECT * FROM `voyage` WHERE `id`='$id'";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Voyage');
+        $sth->execute();
+        $voy = $sth->fetch();
+        $sth->closeCursor();
+        return $voy;
+    }
 
 }
+
 ?>

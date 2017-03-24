@@ -117,34 +117,29 @@ EOS;
 function printRegisterFormV() {
     echo <<<EOS
      <form action="index.php?page=respovos" method="post">
-     
- <p>
-  <label for="id">Id :</label>
-  <input id="login" type=text required name=id>
- </p>
      <p>
-  <label for="nom">Nom :</label>
-  <input id="text" type=text required name=nom>
+  <label for="nom">Pays :</label>
+  <input id="text" type="text" required name="nom">
  </p>
      <p>
   <label for="Promotion">Promotion :</label>
-  <input id="text" type=text required name=promotion>
+  <input id="text" type="number" name="promotion">
  </p>
      <p>
   <label for="Section">Section :</label>
-  <input id="text" type=text required name=section>
+  <input id="text" type="text" required name="section">
  </p>
  <p>
   <label for="latitude">Latitude :</label>
-  <input id="latitude" type=decimal required name=latitude>
+  <input id="latitude" type="text" required name="latitude" readonly="readonly">
  </p>
     <p>
   <label for="latitude">Longitude :</label>
-  <input id="longitude" type=decimal required name=longitude>
+  <input id="longitude" type="text" required name="longitude" readonly="readonly">
  </p>
  <p>
-  <label for="password2">Information :</label>
-<input id="information" type=text name=information>
+ <label for="information">Information :</label>
+<textarea name="information" rows="5" cols="50" n></textarea>
  </p>
       
  <input type=submit value="Submit">
