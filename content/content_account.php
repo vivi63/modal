@@ -40,8 +40,6 @@ echo "</div>";
 
 
 
-
-
 if (isset($_POST["id"]) && $_POST["id"] != "" &&
         isset($_POST["password"]) && $_POST["password"] != "" &&
         isset($_POST["todo"])) {

@@ -32,7 +32,7 @@ function insererUtilisateur($id, $nom, $prenom, $password, $statut, $section, $p
 
 function insererVoyage($id, $nom, $section, $promotion, $latitude, $longitude, $information) {
     $dbh = Database::connect();
-    $sth = $dbh->prepare("INSERT INTO `voyage` ('id', 'nom', 'section', 'promotion',  'latitude', 'longitude','information') VALUES(?,?,?,?,?,?,?)");
+    $sth = $dbh->prepare("INSERT INTO `voyage` (`id`, `nom`, `section`, `promotion`,  `latitude`, `longitude`, `information`) VALUES(?,?,?,?,?,?,?)");
     $sth->execute(array("$id", "$nom", "$section", "$promotion", "$latitude", "$longitude", "$information"));
     $dbh = null;
 }
@@ -62,7 +62,7 @@ class Utilisateur {
     public $section;
     public $promotion;
 
-    public function __toString() {
+    public function _toString() {
         return '[' . "$this->login" . ']' . " " . "$this->prenom" . " " . $this->nom . ", X" . "$this->promotion" . "<br>";
     }
 

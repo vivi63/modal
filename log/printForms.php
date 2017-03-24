@@ -153,6 +153,21 @@ function printRegisterFormV() {
  
      
 EOS;
+} 
+    
+ function printSearchForm() {
+    echo <<<EOS
+     <form action="index.php?page=destinations" method="post"> 
+ <p>
+  <label for="id">Id :</label>
+  <input id="id" type=text required name=id>
+ </p> 
+ <input type=submit value="Rechercher">
+</form>
+     
+ 
+     
+EOS;
 }
 ?>
 
