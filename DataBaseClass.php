@@ -131,6 +131,16 @@ class Voyage {
         $sth->closeCursor();
         return $voy;
     }
+    
+    public static function getAllVoyage($dbh) {
+        $query = "SELECT * FROM `voyage`";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Voyage');
+        $sth->execute();
+        $voy = $sth->fetch();
+        $sth->closeCursor();
+        return $voy;
+    }
 
 
 
