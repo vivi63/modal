@@ -33,6 +33,7 @@ if (isset($_SESSION["loggedIn"])) {
 
 
 
+
 <script>
     function initMap() {
         var map = new google.maps.Map(document.getElementById('maCarte'), {
