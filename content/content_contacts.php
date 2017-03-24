@@ -1,6 +1,7 @@
 <?php
 
 
+
 echo <<<EOS
      <div class="row">
                     <div class="col-md-3 col-md-offset-2">
