@@ -17,28 +17,31 @@
 
 <?php
 
-function generateHTMLHeader($title, $link) {
+function generateHTMLHeader($title) {
     echo <<<EOS
-          <link rel="stylesheet" type="text/css" href="../Style.css" />
-          <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-            <link href="../bootstrap/css/perso.css" rel="stylesheet">
           <head>
+        
+          <link href="../bootstrap/css/bootstrap.css" rel="stylesheet"/>
+          <link href="../bootstrap/css/perso.css" rel="stylesheet"/>
+           <link rel="stylesheet" type="text/css" href="../Project/style.css" />
+          
         <meta charset="UTF-8"/>
         <meta name="author" content="Nom de l'auteur"/>
         <meta name="keywords" content="Mots clefs relatifs à cette page"/>
         <meta name="description" content="Descriptif court"/>
         <title>$title</title>
-    </head>
+        </head>
 EOS;
 }
 
 function generateHTMLFooter() {
     echo "</html>";
 }
-/* 
+
+/*
  * Nav Bar dynamique hors connection 
  */
-$page_listhc= array(
+$page_listhc = array(
     array(
         "name" => "welcome",
         "title" => "Accueil de notre site",
@@ -51,7 +54,7 @@ $page_listhc= array(
         "name" => "connexion",
         "title" => "Connecte toi ! ",
         "menutitle" => "Connexion"),
-     array(
+    array(
         "name" => "inscription",
         "title" => "Comment s'inscrire ?",
         "menutitle" => "Inscription"),
@@ -61,11 +64,11 @@ $page_listhc= array(
         "menutitle" => "Nous contacter"),
 );
 
-/* 
+/*
  * Nav Bar dynamique connection respo vos
  */
 
-$page_listco= array(
+$page_listco = array(
     array(
         "name" => "welcome",
         "title" => "Accueil de notre site",
@@ -74,7 +77,6 @@ $page_listco= array(
         "name" => "destinations",
         "title" => "Les destinations précédentes",
         "menutitle" => "Voir les destinations précédentes"),
-    
     array(
         "name" => "photo",
         "title" => "Albums Photos",
@@ -87,7 +89,7 @@ $page_listco= array(
         "name" => "account",
         "title" => "Gérer mon Compte",
         "menutitle" => "Mon Compte"),
-     array(
+    array(
         "name" => "deconnexion",
         "title" => "Déconnexion",
         "menutitle" => "Déconnexion"),
@@ -96,12 +98,12 @@ $page_listco= array(
         "title" => "Qui sommes-nous ?",
         "menutitle" => "Nous contacter"),
 );
-if (isset($_SESSION["loggedIn"])){
-    $page_list=$page_listco;
+if (isset($_SESSION["loggedIn"])) {
+    $page_list = $page_listco;
+} else {
+    $page_list = $page_listhc;
 }
-else{
-    $page_list=$page_listhc;
-}
+
 function checkPage($askedPage) {
     global $page_list;
     foreach ($page_list as $name => $array) {
@@ -112,22 +114,21 @@ function checkPage($askedPage) {
     return FALSE;
 }
 
-$pageTitle="Erreur";
+$pageTitle = "Erreur";
 
-function getPageTitle($askedPage){
+function getPageTitle($askedPage) {
     global $pageTitle;
     global $page_list;
     foreach ($page_list as $name => $array) {
         if ($askedPage == $array["name"]) {
-            $pageTitle=$array["title"];
-            
+            $pageTitle = $array["title"];
         }
     }
     echo "<h1>";
     echo "$pageTitle";
     echo "</h1>";
-  
 }
+
 function generateMenu($askedPage) {
     global $page_list;
     echo <<<EOS
@@ -137,13 +138,12 @@ function generateMenu($askedPage) {
                         <ul class="nav navbar-nav">
 EOS;
     foreach ($page_list as $name => $array) {
-        if($array['name']==$askedPage){
+        if ($array['name'] == $askedPage) {
             echo "<li>";
-        }
-        else{
+        } else {
             echo "<li class='active'>";
         }
-        echo "<a href='index.php?page=".$array['name']."'>";
+        echo "<a href='index.php?page=" . $array['name'] . "'>";
         echo $array['menutitle'];
         echo "</a>";
         echo "</li>";
@@ -155,13 +155,7 @@ EOS;
                 </div>
             </div>
 EOS;
-                            
-                            
-
 }
-    
-   
-
 ?>
 
 

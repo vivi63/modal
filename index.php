@@ -12,8 +12,8 @@ if (!isset($_SESSION['initiated'])) {
 
     <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="js/code.js"></script>
-
-
+    
+ 
     <?php
     require('utils/utils.php');
     require('log/printForms.php');
@@ -49,7 +49,7 @@ if (!isset($_SESSION['initiated'])) {
     if ($authorized == TRUE) {
         $pageTitle = getPageTitle($askedPage);
     }
-    generateHTMLHeader($pageTitle, "bootstrap.css");
+    generateHTMLHeader($pageTitle);
     ?>
 
     <body>
