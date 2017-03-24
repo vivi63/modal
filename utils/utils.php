@@ -19,7 +19,7 @@
 
 function generateHTMLHeader($title, $link) {
     echo <<<EOS
-          
+          <link rel="stylesheet" type="text/css" href="../Style.css" />
           <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
             <link href="../bootstrap/css/perso.css" rel="stylesheet">
           <head>
