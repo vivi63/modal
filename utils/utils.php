@@ -19,11 +19,11 @@
 
 function generateHTMLHeader($title) {
     echo <<<EOS
-          <head>
+           
           <link href="../bootstrap/css/bootstrap.css" rel="stylesheet"/>
           <link href="../bootstrap/css/perso.css" rel="stylesheet"/>
-           <link rel="stylesheet" type="text/css" href="../Project/style.css" />
-          
+         <link  href="style.css" rel="stylesheet"  />
+         <head>
         <meta charset="UTF-8"/>
         <meta name="author" content="Nom de l'auteur"/>
         <meta name="keywords" content="Mots clefs relatifs à cette page"/>

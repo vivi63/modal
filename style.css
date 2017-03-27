@@ -1,28 +1,39 @@
 @import url(http://fonts.oogleapis.com/css?family=Shadows+Into+Light);
-.urgent {
-    color:red;
-    font-size:large;
+.titre {
+    color:#0A2D78;
+    font-size:60px;
     font-weight:bold;
+     font-family: Avantgarde, sans-serif;
+     
 
 }
 h1{
-    color:black;
+    color: #0A2D78;
     font-weight:bold;
-    font-family: sans-serif;
+    font-family: Avantgarde, sans-serif;
 }
 h1 small{
-    color:black;
+    color:#0A2D78;
     border: 10px; 
 
 }
 body{
     color: black;
-    font-family: sans-serif;
+    font-family: Avantgarde, sans-serif;
     margin-left:  10px; 
-    background-image: url(../pic/BG.jpg);
-     background-attachment: fixed;
-   
+    background-image:url(pic/A.jpg);
+    background-attachment:fixed;
+ 
 }
+
+.navbar fixed-top navbar-light bg-faded{
+    color: black;
+    
+  
+}
+      
+   
+
 .temoignage p{
     font-family: 'Shadows Into Light',roboto;
     font-size: x-large;

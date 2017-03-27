@@ -59,7 +59,7 @@ if (!isset($_SESSION['initiated'])) {
             ?>
 
             <div class="jumbotron">
-                <h1>Info VOS<br> </h1>
+                <span class="titre">Info VOS</span>
             </div>
 
             <div id="content">

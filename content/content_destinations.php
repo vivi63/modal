@@ -4,9 +4,11 @@
 if(isset($_POST["id"]) && $_POST["id"] != ""){
    $voyage=Voyage::getVoyage($dbh,$_POST["id"]);
    if(Voyage::ifVoyage($_POST["id"])!=NULL){
-    echo $voyage->__ToString();
+    echo "<h3>".$voyage->__ToString()."</h3>";
     echo "<br>";
-    echo "Merci";
+    echo "<div class='container-fluid'>"."<div class='row'>"."<div class='col-md-8'>";
+    echo "<p>".$voyage->__ToStringInformation()."</p>";
+    echo "</div>"."</div>"."</div>";
     $form_values_valid=true;
    }
    else{
