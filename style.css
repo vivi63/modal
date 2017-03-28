@@ -1,4 +1,9 @@
 @import url(http://fonts.oogleapis.com/css?family=Shadows+Into+Light);
+@font-face {
+        font-family: Avantgarde;
+        src: url("./po/AvantGarde.TTF");
+}
+
 .titre {
     color:#0A2D78;
     font-size:60px;
@@ -10,7 +15,7 @@
 h1{
     color: #0A2D78;
     font-weight:bold;
-    font-family: Avantgarde, sans-serif;
+    font-family: Avantgarde,sans-serif;
 }
 h1 small{
     color:#0A2D78;
@@ -21,10 +26,15 @@ body{
     color: black;
     font-family: Avantgarde, sans-serif;
     margin-left:  10px; 
-    background-image:url(pic/A.jpg);
+    background-image:url(pic/B.jpg);
     background-attachment:fixed;
+     font-weight:bold;
  
 }
+.jumbotron {
+    background-color: whitesmoke;
+}
+
 
 .navbar fixed-top navbar-light bg-faded{
     color: black;
@@ -32,7 +42,10 @@ body{
   
 }
       
-   
+ .page-header {
+  
+      border-bottom: 5px solid #f5f5f5;
+}  
 
 .temoignage p{
     font-family: 'Shadows Into Light',roboto;

@@ -123,7 +123,7 @@ function getPageTitle($askedPage) {
             $pageTitle = $array["title"];
         }
     }
-    echo "<h1>";
+  echo "<h1>";
     echo "$pageTitle";
     echo "</h1>";
 }

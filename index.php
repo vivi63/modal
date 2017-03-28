@@ -47,20 +47,22 @@ if (!isset($_SESSION['initiated'])) {
 
     $authorized = checkPage($askedPage);
     if ($authorized == TRUE) {
-        $pageTitle = getPageTitle($askedPage);
+        
     }
     generateHTMLHeader($pageTitle);
     ?>
 
     <body>
+         
         <div class="container">
+            <div class="page-header">
+                <span class="titre">Info VOS</span>
+            </div>
             <?php
             generateMenu($askedPage);
             ?>
 
-            <div class="jumbotron">
-                <span class="titre">Info VOS</span>
-            </div>
+           
 
             <div id="content">
                 <div>
