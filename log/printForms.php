@@ -46,19 +46,29 @@ function printRegisterForm() {
   <label for="password2">Confirmer le mot de passe :</label>
   <input id="password2" type=password name=up2>
  </p>
-     <p>
-  <label for="statut">Statut : </label>
-  <input id="text" type=integer required name=statut>
- </p>
+    <p>
+       <label for="statut">Statut :</label>
+       <select name="statut" id="statut">
+           <option value="0">Elève</option>
+           <option value="1">Respo VOS</option>
+           <option value="2">Administrateur</option>
+                   
+</select>
+   </p>
      <p>
   <label for="section">Section : </label>
-  <input id="text" type=text required name=section>
+  <select name="section" id="section">
+           <option value="volley">Volley</option>
+           <option value="natation">Natation</option>
+           <option value="football">Football</option>
+                   
+</select>
  </p>
      <p>
   <label for="promotion">Promotion : </label>
   <input id="text" type=text required name=promotion>
  </p>
-  <input type=submit value="Créer votre compte">
+  <p><input type=submit value="Créer votre compte"></p>
 </form>
  
      
@@ -139,10 +149,10 @@ function printRegisterFormV() {
  </p>
  <p>
  <label for="information">Information :</label>
-<textarea name="information" rows="5" cols="50" n></textarea>
+<textarea name="information" rows="10" cols="90" n></textarea>
  </p>
       
- <input type=submit value="Submit">
+ <input type=submit value="Soumettre">
 </form>
      
  

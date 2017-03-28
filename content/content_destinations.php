@@ -9,6 +9,7 @@ if(isset($_POST["id"]) && $_POST["id"] != ""){
     echo "<div class='container-fluid'>"."<div class='row'>"."<div class='col-md-8'>";
     echo "<p>".$voyage->__ToStringInformation()."</p>";
     echo "</div>"."</div>"."</div>";
+    echo "<h4>"."<a href='http://localhost/Project/index.php?page=destinations'>Lance une nouvelle recherche</a>"."</h4>";
     $form_values_valid=true;
    }
    else{

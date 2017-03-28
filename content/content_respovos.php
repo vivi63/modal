@@ -1,32 +1,7 @@
-<?php
-if (isset($_SESSION["loggedIn"])) {
-    echo "<h3>" . 'Rentre ton voyage' . "</h3>";
-    $form_values_valid = false;
-
-    if (isset($_POST["nom"]) && $_POST["nom"] != "" &&
-            isset($_POST["section"]) && $_POST["section"] != "" &&
-            isset($_POST["promotion"]) && $_POST["promotion"] != "" &&
-            isset($_POST["latitude"]) && $_POST["latitude"] != "" &&
-            isset($_POST["longitude"]) && $_POST["longitude"] != "" &&
-            isset($_POST["information"]) && $_POST["information"] != "") {
-     
-        insererVoyage($_POST["nom"], $_POST["section"], $_POST["promotion"], $_POST["latitude"], $_POST["longitude"], $_POST["information"]);
-        $form_values_valid = true;
-        echo "Voyage Enregistré";
-        
-    }
-            }
-
-    if (!$form_values_valid) {
-        printRegisterFormV();
-    }
-
-?>
-
 
 <div id="floating-panel">
     <input id="address" type="textbox" value="Sydney, NSW">
-    <input id="submit" type="button" value="Geocode">
+    <input id="submit" type="button" value="Rentre ta ville">
 </div>
 
 
@@ -39,7 +14,7 @@ if (isset($_SESSION["loggedIn"])) {
 <script>
     function initMap() {
         var map = new google.maps.Map(document.getElementById('maCarte'), {
-            zoom: 8,
+            zoom: 4,
             center: {lat: -34.397, lng: 150.644}
         });
         var geocoder = new google.maps.Geocoder();
@@ -74,4 +49,28 @@ function geocodeAddress(geocoder, resultsMap) {
 
 </script>
 
-echo()
+
+<?php
+if (isset($_SESSION["loggedIn"])) {
+    echo "<h3>" . 'Rentre ton voyage' . "</h3>";
+    $form_values_valid = false;
+
+    if (isset($_POST["nom"]) && $_POST["nom"] != "" &&
+            isset($_POST["section"]) && $_POST["section"] != "" &&
+            isset($_POST["promotion"]) && $_POST["promotion"] != "" &&
+            isset($_POST["latitude"]) && $_POST["latitude"] != "" &&
+            isset($_POST["longitude"]) && $_POST["longitude"] != "" &&
+            isset($_POST["information"]) && $_POST["information"] != "") {
+     
+        insererVoyage($_POST["nom"], $_POST["section"], $_POST["promotion"], $_POST["latitude"], $_POST["longitude"], $_POST["information"]);
+        $form_values_valid = true;
+        echo "<h3>"."Voyage Enregistré"."</h3>";
+        
+    }
+            }
+
+    if (!$form_values_valid) {
+        printRegisterFormV();
+    }
+
+?>

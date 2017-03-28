@@ -76,10 +76,7 @@ $page_listco = array(
         "name" => "destinations",
         "title" => "Les destinations précédentes",
         "menutitle" => "Voir les destinations précédentes"),
-    array(
-        "name" => "photo",
-        "title" => "Albums Photos",
-        "menutitle" => "Voir les albums photos"),
+    
     array(
         "name" => "respovos",
         "title" => "Retex détaillé",
