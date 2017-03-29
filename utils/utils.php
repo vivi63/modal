@@ -70,7 +70,7 @@ $page_listhc = array(
 $page_listco = array(
     array(
         "name" => "welcome",
-        "title" => "Accueil de notre site",
+        "title" => "Accueil",
         "menutitle" => "Accueil"),
     array(
         "name" => "destinations",

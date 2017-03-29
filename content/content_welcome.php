@@ -3,22 +3,25 @@
 
 
     echo <<<EOS
-      <h2>Bonjour à tous ! </h2>
+      <h2>Bienvenue à toi !</h2>
+
 <p>
-  Tout d'abord nous allons parler de beaucoup de choses.
+ Tu trouveras sur ce site toutes les informations concernant les VOS de tes illustres anciens
 </p>
+ <blockquote>
+<p>Ce site est génial, comme ma b*** </p>
+
+  <p> Victor Chomel</p>
+</blockquote>
+<h2>Un aperçu des destinations des promotions précédentes</h2>
 <p>
-  Et puis voila un autre paragraphe.
-</p>
- 
-<h2>Une autre section de ma page d'accueil</h2>
-<p>
-  Avec d'autres paragraphes...
+  Carte à afficher
 </p> 
 
 
 EOS;
 
+    
 ?>
 
 
