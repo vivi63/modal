@@ -66,6 +66,7 @@ class Utilisateur {
         return '[' . "$this->login" . ']' . " " . "$this->prenom" . " " . $this->nom . ", X" . "$this->promotion" . "<br>";
     }
 
+    
     public static function getUtilisateur($dbh, $id) {
 
         $query = "SELECT * FROM `utilisateur` WHERE `id`='$id'";
@@ -75,6 +76,16 @@ class Utilisateur {
         $user = $sth->fetch();
         $sth->closeCursor();
         return $user;
+    }
+    public static function getStatut($dbh, $id) {
+
+        $query = "SELECT * FROM `utilisateur` WHERE `id`='$id'";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+        $sth->execute();
+        $user = $sth->fetch();
+        $sth->closeCursor();
+        return $user->statut;
     }
 
     public static function testerMdp($dbh, $id, $password) {
@@ -95,7 +106,7 @@ class Utilisateur {
             $id = $_POST["id"];
             $user = Utilisateur::getUtilisateur($dbh, $id);
             if (($user != NULL) && (Utilisateur::testerMdp($dbh, $id, $_POST["password"]))) {
-                $_SESSION['loggedIn'] = " ";
+                $_SESSION['loggedIn'] = Utilisateur::getStatut($dbh, $_POST["id"]);
                 echo 'Bonjour ' . $_POST["id"];
             }
         }
