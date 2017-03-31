@@ -27,7 +27,8 @@
 function geocodeAddress(geocoder, resultsMap) {
   var address = document.getElementById('address').value;
   geocoder.geocode({'address': address}, function(results, status) {
-    
+   
+   
    if (status === google.maps.GeocoderStatus.OK) {
       resultsMap.setCenter(results[0].geometry.location);
       
@@ -51,6 +52,8 @@ function geocodeAddress(geocoder, resultsMap) {
 
 
 <?php
+if($_SESSION["loggedIn"]=="1"||$_SESSION["loggedIn"]=="2"){
+
 if (isset($_SESSION["loggedIn"])) {
     echo "<h3>" . 'Rentre ton voyage' . "</h3>";
     $form_values_valid = false;
@@ -72,5 +75,8 @@ if (isset($_SESSION["loggedIn"])) {
     if (!$form_values_valid) {
         printRegisterFormV();
     }
-
+}
+else {
+    echo "<h3>"."Tu n'es pas respo VOS"."</h3>"; 
+}
 ?>
