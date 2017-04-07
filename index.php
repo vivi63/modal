@@ -23,7 +23,7 @@ if (!isset($_SESSION['initiated'])) {
 
     $dbh = Database::connect();
 
-    $askedPage = "";
+    $askedPage ="";
     if (isset($_POST['page'])) {
         $askedPage = $_POST["page"];
     }
@@ -34,8 +34,8 @@ if (!isset($_SESSION['initiated'])) {
     }
     ?>
     <?php
-    $askedPage = "";
-
+    
+     $askedPage="A";
     function ini() {
         global $askedPage;
         if (isset($_GET['page'])) {
@@ -45,18 +45,20 @@ if (!isset($_SESSION['initiated'])) {
 
     ini();
 
-    $authorized = checkPage($askedPage);
-    if ($authorized == TRUE) {
-        
-    }
-    generateHTMLHeader($pageTitle);
+     $authorized = checkPage($askedPage);
+     generateHTMLHeader($pageTitle);
+     secure($_POST);
+     secure($_SESSION);
+    
     ?>
 
     <body>
          
         <div class="container">
             <div class="page-header">
+<!--                 <img src="pic/z.png" alt="avion"    height="80px"/>-->
                 <span class="titre">Info VOS</span>
+               
             </div>
             <?php
             generateMenu($askedPage);
@@ -76,16 +78,16 @@ if (!isset($_SESSION['initiated'])) {
 
                  </div>
         
-                <div id="footer">
+            <div id="footer">
                     <p>Site réalisé en Modal Web </p>
                 </div>
 
            
            
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9eT0FeDkrXqf1-IHAn0hE54hMDrCo5Ws&callback=initMap&signed_in=true" async defer>
-        </script>
         </div>
         
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9eT0FeDkrXqf1-IHAn0hE54hMDrCo5Ws&callback=initMap&signed_in=true" async defer>
+        </script>
     </body>
     <?php
     generateHTMLFooter();

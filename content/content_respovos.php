@@ -73,7 +73,9 @@ if (isset($_SESSION["loggedIn"])) {
             }
 
     if (!$form_values_valid) {
-        printRegisterFormV();
+        $promotion=Utilisateur::getPromotion($dbh, $_SESSION['id']);
+        $section=Utilisateur::getSection($dbh, $_SESSION['id']);
+        printRegisterFormV($promotion,$section);
     }
 }
 else {

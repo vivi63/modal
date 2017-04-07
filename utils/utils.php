@@ -38,17 +38,13 @@ function generateHTMLFooter() {
 }
 
 /*
- * Nav Bar dynamique hors connection 
+ * Nav Bar Hors Connection 
  */
 $page_listhc = array(
     array(
         "name" => "welcome",
         "title" => "Accueil de notre site",
         "menutitle" => "Accueil"),
-    array(
-        "name" => "destinations",
-        "title" => "Les destinations précédentes",
-        "menutitle" => "Voir les destinations précédentes"),
     array(
         "name" => "connexion",
         "title" => "Connecte toi ! ",
@@ -64,10 +60,32 @@ $page_listhc = array(
 );
 
 /*
- * Nav Bar dynamique connection respo vos
+ * Nav Bar Connection élève de l'école 
  */
 
 $page_listco = array(
+    array(
+        "name" => "welcome",
+        "title" => "Accueil",
+        "menutitle" => "Accueil"),
+    array(
+        "name" => "destinations",
+        "title" => "Les destinations précédentes",
+        "menutitle" => "Voir les destinations précédentes"),
+    array(
+        "name" => "account",
+        "title" => "Gérer mon Compte",
+        "menutitle" => "Mon Compte"),
+    array(
+        "name" => "deconnexion",
+        "title" => "Déconnexion",
+        "menutitle" => "Déconnexion"),
+    array(
+        "name" => "contacts",
+        "title" => "Qui sommes-nous ?",
+        "menutitle" => "Nous contacter"),
+);
+$page_listcovos = array(
     array(
         "name" => "welcome",
         "title" => "Accueil",
@@ -94,8 +112,16 @@ $page_listco = array(
         "title" => "Qui sommes-nous ?",
         "menutitle" => "Nous contacter"),
 );
+
+
 if (isset($_SESSION["loggedIn"])) {
-    $page_list = $page_listco;
+    if($_SESSION["loggedIn"]=="1"||$_SESSION["loggedIn"]=="2"){
+        $page_list=$page_listcovos;
+    }
+    else{
+       $page_list = $page_listco; 
+    }
+    
 } else {
     $page_list = $page_listhc;
 }
@@ -145,6 +171,8 @@ EOS;
         echo "</li>";
     }
     echo <<<EOS
+   
+   
          
                         </ul>
                     </div>

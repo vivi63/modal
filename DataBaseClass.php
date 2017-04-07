@@ -1,5 +1,12 @@
 <?php
 
+function secure($tab){
+    foreach ($tab as $cle => $valeur){
+        $tab[$cle]=  htmlspecialchars($valeur);
+    }
+    return $tab;
+}
+
 class Database {
 
     public static function connect() {
@@ -87,6 +94,30 @@ class Utilisateur {
         $sth->closeCursor();
         return $user->statut;
     }
+    
+     public static function getPromotion($dbh, $id) {
+
+        $query = "SELECT * FROM `utilisateur` WHERE `id`='$id'";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+        $sth->execute();
+        $user = $sth->fetch();
+        $sth->closeCursor();
+        return $user->promotion;
+    }
+    
+    public static function getSection($dbh, $id) {
+
+        $query = "SELECT * FROM `utilisateur` WHERE `id`='$id'";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+        $sth->execute();
+        $user = $sth->fetch();
+        $sth->closeCursor();
+        return $user->section;
+    }
+    
+    
 
     public static function testerMdp($dbh, $id, $password) {
         $query = "SELECT * FROM `utilisateur` WHERE `id`='$id'";
@@ -101,12 +132,16 @@ class Utilisateur {
         }
     }
 
+    
+//   On stocke l'id ainsi que le statut de l'utilisateur dans une variable de session (id pour récupérer certaines informations pour les sondages, 
+//    le statut pour générer certaines pages en fonction du niveau de l'utilisateur)
     public static function logIn($dbh) {
         if ((isset($_POST["id"]) && (isset($_POST["password"])))) {
             $id = $_POST["id"];
             $user = Utilisateur::getUtilisateur($dbh, $id);
             if (($user != NULL) && (Utilisateur::testerMdp($dbh, $id, $_POST["password"]))) {
                 $_SESSION['loggedIn'] = Utilisateur::getStatut($dbh, $_POST["id"]);
+                $_SESSION['id']= $_POST["id"];
                 echo 'Bonjour ' . $_POST["id"];
             }
         }

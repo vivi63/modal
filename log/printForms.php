@@ -17,7 +17,7 @@ EOS;
 function printLogoutForm($askedpage) {
     echo <<<EOS
      <form action="index.php?page=$askedpage" method="post">
-   <p><input type="hidden"  value="logout" name="todo" /> </p>
+     <p><input type="hidden"  value="logout" name="todo" /> </p>
      <p><input type="submit" value="Se déconnecter" /></p>
 EOS;
 }
@@ -61,12 +61,31 @@ function printRegisterForm() {
            <option value="volley">Volley</option>
            <option value="natation">Natation</option>
            <option value="football">Football</option>
+           <option value="ultimate">Ultimate</option>
+           <option value="boxe">Boxe</option>
+          <option value="aviron">Aviron</option>
+          <option value="rugby">Rugby</option>
+          <option value="escrime">Escrime</option>
+           <option value="judo">Judo</option>
+     <option value="raid">Raid</option>
+    
+    
                    
 </select>
  </p>
      <p>
-  <label for="promotion">Promotion : </label>
-  <input id="text" type=text required name=promotion>
+    
+ <select name="promotion" id="promotion">
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+           <option value="2015">2015</option>
+           <option value="2014">2014</option>
+           <option value="2013">2013</option>
+    
+    
+    
+                   
+</select>
  </p>
   <p><input type=submit value="Créer votre compte"></p>
 </form>
@@ -124,7 +143,7 @@ EOS;
 
 //Formulaire pour les voyages 
 
-function printRegisterFormV() {
+function printRegisterFormV($promotion,$section) {
     echo <<<EOS
      <form action="index.php?page=respovos" method="post">
      <p>
@@ -133,11 +152,11 @@ function printRegisterFormV() {
  </p>
      <p>
   <label for="Promotion">Promotion :</label>
-  <input id="text" type="number" name="promotion">
+  <input id="text" type="number" name="promotion" value="$promotion" readonly="readonly">
  </p>
      <p>
   <label for="Section">Section :</label>
-  <input id="text" type="text" required name="section">
+  <input id="text" type="text" required name="section" value="$section" readonly="readonly">
  </p>
  <p>
   <label for="latitude">Latitude :</label>

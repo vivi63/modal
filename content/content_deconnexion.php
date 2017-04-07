@@ -1,4 +1,5 @@
 <?php
+if(isset($_SESSION["loggedIn"])){
 echo "<h3>"."Se déconnecter"."</h3>";
 if (isset($_POST['todo'])) {
                 if ($_POST['todo'] == 'logout') {
@@ -7,4 +8,7 @@ if (isset($_POST['todo'])) {
                 }
             }
             printLogoutForm('deconnexion');
+}
+
+           
 ?>
