@@ -165,7 +165,15 @@ class Voyage {
     public $information;
 
     public function __toString() {
-        return '[' . "$this->id" . ']' . " Voyage réalisé par la section " . "$this->section" . " $this->promotion " .  " en  " . "$this->nom";
+        return '[' . "$this->id" . ']' . " " . "$this->nom" . " " . $this->promotion. " à la latitude " . "$this->latitude" . " et la longitude " . "$this->longitude";
+    }
+    
+    public function description() {
+        return "VOS_à_" . "$this->nom" . "_fait_par_" . "$this->section" . "_" . "$this->promotion" . "_ID_:_" . "$this->id";
+    }
+    
+    public function getId(){
+        return "$this->id";
     }
     public function __toStringInformation() {
         return "$this->information";
@@ -173,7 +181,7 @@ class Voyage {
  
     
     public function __localisation() {
-        return "lat: "."$this->latitude".", "."lng: "."$this->longitude";
+        return "lat: " . "$this->latitude" . ", " . "lng: " . "$this->longitude";
     }
 
     public static function getVoyage($dbh, $id) {

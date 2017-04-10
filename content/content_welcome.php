@@ -18,11 +18,63 @@
   Carte à afficher
 </p> 
 
+    <div id="maCarte"></div>
 
 EOS;
 
     
 ?>
+
+<script>
+
+    
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('maCarte'), {
+            zoom: 4,
+            center: {lat: 48.856614, lng: 2.3522219}
+        });
+
+        var bounds = {
+            north: 48.856614,
+            south: 43.01,
+            east: 2.3522219,
+            west: -3.45
+        };
+
+        // Display the area between the location southWest and northEast.
+        map.fitBounds(bounds);
+
+       
+        <?php
+        $voyagesTout=Voyage::getAllVoyage($dbh);
+        foreach($voyagesTout as $voya) {
+            
+            echo ("var marker = new google.maps.Marker({");
+            echo ("position: {");
+            echo $voya->__localisation();
+            echo ("},");
+            echo ("map: map });");
+            echo ("attachSecretMessage(marker, " . '"' . $voya->description()  . '"' . ");");
+        }
+        ?>
+    }
+            
+            
+                
+
+    // Attaches an info window to a marker with the provided message. When the
+    // marker is clicked, the info window will open with the secret message.
+    function attachSecretMessage(marker, secretMessage) {
+        var infowindow = new google.maps.InfoWindow({
+            content: secretMessage
+        });
+
+        marker.addListener('click', function () {
+            infowindow.open(marker.get('maCarte'), marker);
+        });
+    }
+    
+</script>
 
 
 
