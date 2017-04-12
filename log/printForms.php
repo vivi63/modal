@@ -74,7 +74,7 @@ function printRegisterForm() {
 </select>
  </p>
      <p>
-    
+  <label for="section">Promotion : </label>
  <select name="promotion" id="promotion">
             <option value="2017">2017</option>
             <option value="2016">2016</option>
@@ -152,7 +152,7 @@ function printRegisterFormV($promotion,$section) {
  </p>
      <p>
   <label for="Promotion">Promotion :</label>
-  <input id="text" type="number" name="promotion" value="$promotion" readonly="readonly">
+  <input id="text" type="TEXT" name="promotion" value="$promotion" readonly="readonly">
  </p>
      <p>
   <label for="Section">Section :</label>

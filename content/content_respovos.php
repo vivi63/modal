@@ -64,10 +64,9 @@ if (isset($_SESSION["loggedIn"])) {
             isset($_POST["latitude"]) && $_POST["latitude"] != "" &&
             isset($_POST["longitude"]) && $_POST["longitude"] != "" &&
             isset($_POST["information"]) && $_POST["information"] != "") {
-     
         insererVoyage($_POST["nom"], $_POST["section"], $_POST["promotion"], $_POST["latitude"], $_POST["longitude"], $_POST["information"]);
         $form_values_valid = true;
-        echo "<h3>"."Voyage Enregistré"."</h3>";
+        echo "<h4>"."Voyage Enregistré"."</h4>";
         
     }
             }

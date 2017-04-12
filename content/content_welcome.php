@@ -15,7 +15,7 @@
 </blockquote>
 <h2>Un aperçu des destinations des promotions précédentes</h2>
 <p>
-  Carte à afficher
+ 
 </p> 
 
     <div id="maCarte"></div>
@@ -36,9 +36,9 @@ EOS;
 
         var bounds = {
             north: 48.856614,
-            south: 43.01,
+            south: 2.01,
             east: 2.3522219,
-            west: -3.45
+            west: 5.45
         };
 
         // Display the area between the location southWest and northEast.
