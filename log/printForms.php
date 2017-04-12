@@ -193,5 +193,52 @@ EOS;
      
 EOS;
 }
+function printSearchFormSection() {
+    echo <<<EOS
+     <form action="index.php?page=destinations" method="post"> 
+ <p>
+  <label for="section">Section : </label>
+  <select name="section" id="section">
+           <option value="volley">Volley</option>
+           <option value="natation">Natation</option>
+           <option value="football">Football</option>
+           <option value="ultimate">Ultimate</option>
+           <option value="boxe">Boxe</option>
+          <option value="aviron">Aviron</option>
+          <option value="rugby">Rugby</option>
+          <option value="escrime">Escrime</option>
+           <option value="judo">Judo</option>
+     <option value="raid">Raid</option>                
+</select>
+ </p>
+ <input type=submit value="Rechercher">
+</form>
+     
+ 
+     
+EOS;
+}
+
+function printSearchFormPromotion() {
+    echo <<<EOS
+     <form action="index.php?page=destinations" method="post"> 
+     <p>
+  <label for="section">Promotion : </label>
+ <select name="promotion" id="promotion">
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+           <option value="2015">2015</option>
+           <option value="2014">2014</option>
+           <option value="2013">2013</option>               
+</select>
+ </p>
+ <input type=submit value="Rechercher">
+</form>
+     
+ 
+     
+EOS;
+}
+ 
 ?>
 

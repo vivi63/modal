@@ -51,6 +51,7 @@ function geocodeAddress(geocoder, resultsMap) {
 </script>
 
 
+
 <?php
 if($_SESSION["loggedIn"]=="1"||$_SESSION["loggedIn"]=="2"){
 

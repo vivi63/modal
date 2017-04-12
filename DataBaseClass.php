@@ -167,7 +167,7 @@ class Voyage {
 
     public function __toString() {
 
-        return '[' . "$this->id" . ']' . " " . "$this->nom" . " " . $this->promotion. " à la latitude " . "$this->latitude" . " et la longitude " . "$this->longitude";
+        return "Voyage réalisé en " . "$this->nom" . " par la section " .$this->section." " . $this->promotion;
     }
     
     public function description() {
