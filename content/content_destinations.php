@@ -57,11 +57,8 @@ if (!$form_values_valid) {
 printSearchForm();
 }
 
-echo <<<EOS
-<div id="maCarte"></div>;
 
-
-echo <<<EOS
+echo<<<EOS
     <button id="aa">Recherche par section</button>
     <button id="bb">Recherche par promotion</button>
 EOS;
@@ -114,7 +111,7 @@ EOS;
             echo $voya->__localisation();
             echo ("},");
             echo ("map: map });");
-            echo ("attachSecretMessage(marker, " . '"' . $voya->description()  . '"' . ");");
+            echo ("attachSecretMessage(marker, " . '"' . $voya->description()  . '"' . "," . $voya->getId() . ");");
         }
         ?>
     }
@@ -124,13 +121,14 @@ EOS;
 
     // Attaches an info window to a marker with the provided message. When the
     // marker is clicked, the info window will open with the secret message.
-    function attachSecretMessage(marker, secretMessage) {
+    function attachSecretMessage(marker, secretMessage, id) {
         var infowindow = new google.maps.InfoWindow({
             content: secretMessage
         });
 
         marker.addListener('click', function () {
             infowindow.open(marker.get('maCarte'), marker);
+            document.getElementById("id").value = id;
         });
     }
     
