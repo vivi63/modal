@@ -7,6 +7,7 @@ function secure($tab){
     return $tab;
 }
 
+
 class Database {
 
     public static function connect() {
