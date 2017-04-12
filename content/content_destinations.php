@@ -57,6 +57,8 @@ if (!$form_values_valid) {
 printSearchForm();
 }
 
+echo <<<EOS
+<div id="maCarte"></div>;
 
 
 echo <<<EOS
