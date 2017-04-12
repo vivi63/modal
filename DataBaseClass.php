@@ -206,6 +206,26 @@ class Voyage {
         $sth->closeCursor();
         return $voy;
     }
+    
+    public static function getVoyageSection($dbh, $section) {
+        $query = "SELECT * FROM `voyage` WHERE `section` = '$section'";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Voyage');
+        $sth->execute();
+        $voy = $sth->fetchAll();
+        $sth->closeCursor();
+        return $voy;
+    }
+    
+    public static function getVoyagePromotion($dbh, $promotion) {
+        $query = "SELECT * FROM `voyage` WHERE `promotion` = '$promotion'";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Voyage');
+        $sth->execute();
+        $voy = $sth->fetchAll();
+        $sth->closeCursor();
+        return $voy;
+    }
 
     public static function ifVoyage($id) {
         global $dbh;
