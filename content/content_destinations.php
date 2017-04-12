@@ -104,7 +104,7 @@ EOS;
 
        
         <?php
-        foreach($tableauvoyage as $voya) {
+        foreach($tableauvoyages as $voya) {
             
             echo ("var marker = new google.maps.Marker({");
             echo ("position: {");
