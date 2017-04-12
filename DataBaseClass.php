@@ -165,6 +165,7 @@ class Voyage {
     public $information;
 
     public function __toString() {
+
         return '[' . "$this->id" . ']' . " " . "$this->nom" . " " . $this->promotion. " à la latitude " . "$this->latitude" . " et la longitude " . "$this->longitude";
     }
     
@@ -174,6 +175,7 @@ class Voyage {
     
     public function getId(){
         return "$this->id";
+        
     }
     public function __toStringInformation() {
         return "$this->information";
@@ -216,4 +218,4 @@ class Voyage {
     }
 
 }
-?>
+
