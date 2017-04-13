@@ -49,6 +49,7 @@ if (!isset($_SESSION['initiated'])) {
      generateHTMLHeader($pageTitle);
      
      secure($_POST);
+     secure($_GET);
      secure($_SESSION);
     
     ?>
