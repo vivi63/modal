@@ -33,13 +33,13 @@ EOS;
     
     function initMap() {
         var map = new google.maps.Map(document.getElementById('maCarte'), {
-            zoom: 4,
-            center: {lat: 20.856614, lng: 12.3522219}
+            zoom: 1,
+            center: {lat: 2.856614, lng: 12.3522219}
         });
 
         var bounds = {
             north: 20.856614,
-            south: 2.01,
+            south: 20.01,
             east: 12.3522219,
             west: 15.45
         };

@@ -47,6 +47,7 @@ if (!isset($_SESSION['initiated'])) {
 
      $authorized = checkPage($askedPage);
      generateHTMLHeader($pageTitle);
+     
      secure($_POST);
      secure($_SESSION);
     
@@ -61,7 +62,9 @@ if (!isset($_SESSION['initiated'])) {
                
             </div>
             <?php
+            
             generateMenu($askedPage);
+            
             ?>
 
            
@@ -69,10 +72,16 @@ if (!isset($_SESSION['initiated'])) {
             <div id="content">
                 <div>
                     <?php
-                    getPageTitle($askedPage);
-                    if ($authorized == TRUE) {
+                   
+                    if ($authorized) {
+                         getPageTitle($askedPage);
                         require "content/content_$askedPage.php";
                     }
+                    else{
+                         require "content/content_all.php";
+                    }
+                
+                    
                     ?>
                 </div>
 
@@ -90,7 +99,9 @@ if (!isset($_SESSION['initiated'])) {
         </script>
     </body>
     <?php
+    
     generateHTMLFooter();
+    
     ?>
 
 </html>

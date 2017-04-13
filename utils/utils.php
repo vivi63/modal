@@ -94,7 +94,6 @@ $page_listcovos = array(
         "name" => "destinations",
         "title" => "Les destinations précédentes",
         "menutitle" => "Voir les destinations précédentes"),
-    
     array(
         "name" => "respovos",
         "title" => "Retex détaillé",
@@ -112,16 +111,44 @@ $page_listcovos = array(
         "title" => "Qui sommes-nous ?",
         "menutitle" => "Nous contacter"),
 );
+$page_listadmin = array(
+    array(
+        "name" => "welcome",
+        "title" => "Accueil",
+        "menutitle" => "Accueil"),
+    array(
+        "name" => "destinations",
+        "title" => "Les destinations précédentes",
+        "menutitle" => "Voir les destinations précédentes"),
+    array(
+        "name" => "admin",
+        "title" => "Gestion du site",
+        "menutitle" => "Espace Administrateur"),
+    array(
+        "name" => "account",
+        "title" => "Gérer mon Compte",
+        "menutitle" => "Mon Compte"),
+    array(
+        "name" => "deconnexion",
+        "title" => "Déconnexion",
+        "menutitle" => "Déconnexion"),
+    array(
+        "name" => "contacts",
+        "title" => "Qui sommes-nous ?",
+        "menutitle" => "Nous contacter"),
+);
 
 
 if (isset($_SESSION["loggedIn"])) {
-    if($_SESSION["loggedIn"]=="1"||$_SESSION["loggedIn"]=="2"){
-        $page_list=$page_listcovos;
+    if ($_SESSION["loggedIn"] == "1") {
+        $page_list = $page_listcovos;
     }
-    else{
-       $page_list = $page_listco; 
+    elseif ($_SESSION["loggedIn"] == "2") {
+        $page_list = $page_listadmin;
+    } 
+    else {
+        $page_list = $page_listco;
     }
-    
 } else {
     $page_list = $page_listhc;
 }
@@ -146,7 +173,7 @@ function getPageTitle($askedPage) {
             $pageTitle = $array["title"];
         }
     }
-  echo "<h1>";
+    echo "<h1>";
     echo "$pageTitle";
     echo "</h1>";
 }

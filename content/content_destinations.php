@@ -46,10 +46,10 @@ echo "<h4>"."Voyage inconnu, veuillez entrer un nouvel identifiant"."</h4>";
 }
 
 if(isset($_POST["section"]) && $_POST["section"] != ""){
-$tableauvoyage = Voyage::getVoyageSection($dbh, $_POST["section"]);
+$tableauvoyages = Voyage::getVoyageSection($dbh, $_POST["section"]);
 }
 if(isset($_POST["promotion"]) && $_POST["promotion"] != ""){
-$tableauvoyage = Voyage::getVoyagePromotion($dbh, $_POST["promotion"]);
+$tableauvoyages = Voyage::getVoyagePromotion($dbh, $_POST["promotion"]);
 }
 
 
