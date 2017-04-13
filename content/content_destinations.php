@@ -93,10 +93,10 @@ EOS;
         });
 
         var bounds = {
-            north: 20.856614,
-            south: 2.01,
-            east: 2.3522219,
-            west: 15.45
+            north: 60,
+            south: -40,
+            east: 40,
+            west: -60
         };
 
         // Display the area between the location southWest and northEast.

@@ -34,14 +34,14 @@ EOS;
     function initMap() {
         var map = new google.maps.Map(document.getElementById('maCarte'), {
             zoom: 1,
-            center: {lat: 2.856614, lng: 12.3522219}
+            center: {lat: -34.397, lng: 150.644}
         });
 
         var bounds = {
-            north: 20.856614,
-            south: 20.01,
-            east: 12.3522219,
-            west: 15.45
+            north: 60,
+            south: -40,
+            east: 40,
+            west: -60
         };
 
         // Display the area between the location southWest and northEast.
