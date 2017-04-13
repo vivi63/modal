@@ -57,7 +57,7 @@ if (!isset($_SESSION['initiated'])) {
          
         <div class="container">
             <div class="page-header">
-<!--                 <img src="pic/z.png" alt="avion"    height="80px"/>-->
+                 <img  src="pic/z.png" alt="avion"    height="60px" style="float:left;margin:22px 20px 0 0px;"/>
                 <span class="titre">Info VOS</span>
                
             </div>
