@@ -1,17 +1,14 @@
-
+  
 <div id="floating-panel">
     <input id="address" type="textbox" value="Sydney, NSW">
     <input id="submit" type="button" value="Rentre ta ville">
 </div>
 
-
-
 <div id="maCarte"></div>
 
 
-
-
 <script>
+    //    insertion de la carte
     function initMap() {
         var map = new google.maps.Map(document.getElementById('maCarte'), {
             zoom: 4,
@@ -53,6 +50,7 @@ function geocodeAddress(geocoder, resultsMap) {
 
 
 <?php
+//   gestion des formulaires
 if($_SESSION["loggedIn"]=="1"||$_SESSION["loggedIn"]=="2"){
 
 if (isset($_SESSION["loggedIn"])) {

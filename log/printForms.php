@@ -1,6 +1,6 @@
 <?php
 
-// Formulaires pour les utilisateurs 
+// Formulaires liés aux utilisateurs et aux voyages
 
 function printLoginForm($askedpage) {
     echo <<<EOS
@@ -8,9 +8,7 @@ function printLoginForm($askedpage) {
     <p>Pseudo : <input type="text" name="id"  required /></p>
     <p>Mot de passe : <input type="password" name="password"  required /></p>
      <p><input type="submit" value="Valider" /></p>
-     <p><input type="hidden"  value="login" name="todo" /> </p>
-     
-     
+     <p><input type="hidden"  value="login" name="todo" /> </p> 
 EOS;
 }
 
@@ -80,9 +78,7 @@ function printRegisterForm() {
 </select>
  </p>
   <p><input type=submit value="Créer votre compte"></p>
-</form>
- 
-     
+</form>   
 EOS;
 }
 
@@ -168,10 +164,10 @@ function printSearchForm() {
     echo <<<EOS
     <form action = "index.php?page=destinations" method = "post">
     <p>
-    <label for = "id">Id :</label>
+    <label for = "id">Id du voyage :</label>
     <input id = "id" type = text required name = id>
     </p>
-    <input type = submit value = "Rechercher">
+    <input type = submit value = "Voir les informations">
     </form >
 EOS;
 }

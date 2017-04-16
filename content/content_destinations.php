@@ -55,7 +55,7 @@ $tableauvoyages = Voyage::getVoyagePromotion($dbh, $_POST["promotion"]);
 
 if (!$form_values_valid) {
 printSearchForm();
-}
+
 
 
 echo<<<EOS
@@ -80,7 +80,7 @@ echo <<<EOS
   <div id="maCarte"></div>
 EOS;
 
-
+}
 
  ?>
 <script>

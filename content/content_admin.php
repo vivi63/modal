@@ -1,4 +1,5 @@
 <script>
+    //    insertion des boutons dynamique
     $(document).ready(function () {
             $("#A").hide();
             $("#B").hide();
@@ -36,7 +37,7 @@ EOS;
 printFormDeleteVoyage();
 echo "</div>";
 
-
+//   gestion des formulaires
 
 if (isset($_POST["idu"]) && $_POST["idu"] != ""){
         $id=$_POST["idu"];
@@ -57,7 +58,4 @@ if (isset($_POST["idv"]) && $_POST["idv"] != ""){
           echo "<h4>"."Suppression du voyage effectuée"."</h4>";
         
 }
-        
-
-
 ?>

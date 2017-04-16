@@ -18,10 +18,10 @@
  
 <h2>Un aperçu des destinations des promotions précédentes</h2>
 <p>
- 
+ <div id="maCarte"></div>
 </p> 
 
-    <div id="maCarte"></div>
+    
 
 EOS;
 
@@ -29,7 +29,7 @@ EOS;
 ?>
 
 <script>
-
+   //    insertion de la carte
     
     function initMap() {
         var map = new google.maps.Map(document.getElementById('maCarte'), {

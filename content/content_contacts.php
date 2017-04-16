@@ -12,12 +12,8 @@ echo <<<EOS
                         <p>victor.chomel@polytechnique.edu</p>
                     </div>
                 </div>
-            </div>
-    
-    <div id="maCarte"></div>
-               
+            </div>             
 EOS;
 
-
-
+?>
 

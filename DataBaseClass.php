@@ -1,13 +1,14 @@
 <?php
 
-function secure($tab){
-    foreach ($tab as $cle => $valeur){
-        $tab[$cle]=  htmlspecialchars($valeur);
+//   sécurité 
+function secure($tab) {
+    foreach ($tab as $cle => $valeur) {
+        $tab[$cle] = htmlspecialchars($valeur);
     }
     return $tab;
 }
 
-
+//    connexion à la base de données
 class Database {
 
     public static function connect() {
@@ -27,7 +28,7 @@ class Database {
 
 }
 
-// Opération fondamentale 
+// Opération fondamentale liée à la base 
 
 
 
@@ -57,8 +58,7 @@ function getName() {
     $dbh = null;
 }
 
-// Opération fondamentale 
-
+// classe utilisateur
 
 class Utilisateur {
 
@@ -74,7 +74,6 @@ class Utilisateur {
         return '[' . "$this->login" . ']' . " " . "$this->prenom" . " " . $this->nom . ", X" . "$this->promotion" . "<br>";
     }
 
-    
     public static function getUtilisateur($dbh, $id) {
 
         $query = "SELECT * FROM `utilisateur` WHERE `id`='$id'";
@@ -85,6 +84,7 @@ class Utilisateur {
         $sth->closeCursor();
         return $user;
     }
+
     public static function getStatut($dbh, $id) {
 
         $query = "SELECT * FROM `utilisateur` WHERE `id`='$id'";
@@ -95,8 +95,8 @@ class Utilisateur {
         $sth->closeCursor();
         return $user->statut;
     }
-    
-     public static function getPromotion($dbh, $id) {
+
+    public static function getPromotion($dbh, $id) {
 
         $query = "SELECT * FROM `utilisateur` WHERE `id`='$id'";
         $sth = $dbh->prepare($query);
@@ -106,7 +106,7 @@ class Utilisateur {
         $sth->closeCursor();
         return $user->promotion;
     }
-    
+
     public static function getSection($dbh, $id) {
 
         $query = "SELECT * FROM `utilisateur` WHERE `id`='$id'";
@@ -117,8 +117,6 @@ class Utilisateur {
         $sth->closeCursor();
         return $user->section;
     }
-    
-    
 
     public static function testerMdp($dbh, $id, $password) {
         $query = "SELECT * FROM `utilisateur` WHERE `id`='$id'";
@@ -133,7 +131,6 @@ class Utilisateur {
         }
     }
 
-    
 //   On stocke l'id ainsi que le statut de l'utilisateur dans une variable de session (id pour récupérer certaines informations pour les sondages, 
 //    le statut pour générer certaines pages en fonction du niveau de l'utilisateur)
     public static function logIn($dbh) {
@@ -142,7 +139,7 @@ class Utilisateur {
             $user = Utilisateur::getUtilisateur($dbh, $id);
             if (($user != NULL) && (Utilisateur::testerMdp($dbh, $id, $_POST["password"]))) {
                 $_SESSION['loggedIn'] = Utilisateur::getStatut($dbh, $_POST["id"]);
-                $_SESSION['id']= $_POST["id"];
+                $_SESSION['id'] = $_POST["id"];
                 echo 'Bonjour ' . $_POST["id"];
             }
         }
@@ -155,6 +152,7 @@ class Utilisateur {
 
 }
 
+//    classe voyage
 class Voyage {
 
     public $id;
@@ -167,22 +165,21 @@ class Voyage {
 
     public function __toString() {
 
-        return "Voyage réalisé en " . "$this->nom" . " par la section " .$this->section." " . $this->promotion;
+        return "Voyage réalisé en " . "$this->nom" . " par la section " . $this->section . " " . $this->promotion;
     }
-    
+
     public function description() {
         return "VOS_à_" . "$this->nom" . "_fait_par_" . "$this->section" . "_" . "$this->promotion" . "_ID_:_" . "$this->id";
     }
-    
-    public function getId(){
+
+    public function getId() {
         return "$this->id";
-        
     }
+
     public function __toStringInformation() {
         return "$this->information";
     }
- 
-    
+
     public function __localisation() {
         return "lat: " . "$this->latitude" . ", " . "lng: " . "$this->longitude";
     }
@@ -206,7 +203,7 @@ class Voyage {
         $sth->closeCursor();
         return $voy;
     }
-    
+
     public static function getVoyageSection($dbh, $section) {
         $query = "SELECT * FROM `voyage` WHERE `section` = '$section'";
         $sth = $dbh->prepare($query);
@@ -216,7 +213,7 @@ class Voyage {
         $sth->closeCursor();
         return $voy;
     }
-    
+
     public static function getVoyagePromotion($dbh, $promotion) {
         $query = "SELECT * FROM `voyage` WHERE `promotion` = '$promotion'";
         $sth = $dbh->prepare($query);
@@ -239,4 +236,3 @@ class Voyage {
     }
 
 }
-

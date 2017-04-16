@@ -1,10 +1,9 @@
-
-
 <script>
+//    insertion des boutons dynamique
     $(document).ready(function () {
-            $("#A").hide();
-            $("#B").hide();
-        
+        $("#A").hide();
+        $("#B").hide();
+
         $("#aa").click(function () {
             $("#A").show();
             $("#B").hide();
@@ -20,7 +19,6 @@
 </script>
 
 <?php
-
 echo <<<EOS
 <button id="aa">Supprimer mon compte</button>
 <button id="bb">Changer mon mot de passe</button>
@@ -38,7 +36,7 @@ EOS;
 printchangeRegisterForm();
 echo "</div>";
 
-
+//    gestion des formulaires
 
 if (isset($_POST["id"]) && $_POST["id"] != "" &&
         isset($_POST["password"]) && $_POST["password"] != "" &&
@@ -80,6 +78,4 @@ if (isset($_POST["id"]) && $_POST["id"] != "" &&
         }
     }
 }
-
-
 ?>

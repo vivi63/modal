@@ -1,4 +1,5 @@
 <?php
+//    connexion à la session
 session_name("session");
 session_start();
 if (!isset($_SESSION['initiated'])) {
@@ -13,16 +14,13 @@ if (!isset($_SESSION['initiated'])) {
     <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="js/code.js"></script>
     
- 
     <?php
+    //    appel des fichiers 
     require('utils/utils.php');
     require('log/printForms.php');
     require('DataBaseClass.php');
 
-
-
     $dbh = Database::connect();
-
     $askedPage ="";
     if (isset($_POST['page'])) {
         $askedPage = $_POST["page"];
@@ -33,6 +31,7 @@ if (!isset($_SESSION['initiated'])) {
         }
     }
     ?>
+    
     <?php
     
      $askedPage="A";
@@ -44,45 +43,37 @@ if (!isset($_SESSION['initiated'])) {
     }
 
     ini();
-
+    //    vérification que l'on est sur une page au contenu valide
      $authorized = checkPage($askedPage);
      generateHTMLHeader($pageTitle);
      
+     //    sécurisation des tableaux
      secure($_POST);
      secure($_GET);
      secure($_SESSION);
     
     ?>
-
     <body>
-         
         <div class="container">
             <div class="page-header">
                  <img  src="pic/z.png" alt="avion"    height="60px" style="float:left;margin:22px 20px 0 0px;"/>
-                <span class="titre">Info VOS</span>
-               
+                <span class="titre">Info VOS</span>  
             </div>
             <?php
-            
-            generateMenu($askedPage);
-            
+            //    générer barre de navigation
+            generateMenu($askedPage); 
             ?>
-
-           
-
             <div id="content">
                 <div>
                     <?php
-                   
                     if ($authorized) {
                          getPageTitle($askedPage);
                         require "content/content_$askedPage.php";
                     }
                     else{
+                        //    page par défaut
                          require "content/content_all.php";
                     }
-                
-                    
                     ?>
                 </div>
 
@@ -95,14 +86,11 @@ if (!isset($_SESSION['initiated'])) {
            
            
         </div>
-        
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9eT0FeDkrXqf1-IHAn0hE54hMDrCo5Ws&callback=initMap&signed_in=true" async defer>
         </script>
     </body>
     <?php
-    
     generateHTMLFooter();
-    
     ?>
 
 </html>
